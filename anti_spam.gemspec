@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = AntiSpam::VERSION
   s.authors     = ["Rogério Chaves"]
   s.email       = ["rogeriocfj@gmail.com"]
-  s.homepage    = "https://github.com/rogeriochaves/anti-spam"
+  s.homepage    = "https://github.com/rogeriochaves/anti_spam"
   s.summary     = "Simple spam prevention"
   s.description = "Prevent spam from non-javascript bots"
   s.license     = "MIT"
