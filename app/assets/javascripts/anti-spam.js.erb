@@ -1,0 +1,31 @@
+(function(){
+
+	var antiSpamizeForms = function(){
+		var forms = document.querySelectorAll("form");
+		for(var i = 0, max = forms.length; i < max; i++){
+			var form = forms[i];
+			form.onsubmit = function(){
+				if(form.querySelectorAll('input.antispam_token').length == 0){
+					var input = document.createElement('input');
+				    input.type = 'hidden';
+				    input.name = 'antispam_token';
+				    input.className = 'antispam_token'
+				    input.value = '<%= AntiSpam.token %>';
+				    form.appendChild(input);
+				    form.submit();
+				    return false;
+				}
+			}
+		}
+	}
+	
+	if(document.attachEvent){
+		document.attachEvent("onreadystatechange", antiSpamizeForms);
+		document.attachEvent("onload", antiSpamizeForms);
+	}else{
+		document.addEventListener('DOMContentLoaded', antiSpamizeForms, false);
+		document.addEventListener('load', antiSpamizeForms, false);
+		document.addEventListener('page:load', antiSpamizeForms, false); // for turbolinks
+	}
+
+})();
